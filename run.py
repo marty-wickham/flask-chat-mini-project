@@ -1,4 +1,5 @@
 import os
+from datetime import datetime 
 from flask import Flask, redirect
 
 app = Flask(__name__)
@@ -6,6 +7,7 @@ messages = []
 
 def add_messages(username, message):
     """Add messages to the messages list"""
+    now = datetime.strftime("%H:%M:%S")                         # The strftime() method takes a date/time object and then converts that to a string according to a given format.
     messages.append("{}: {}".format(username, message))
 
 def get_all_messages():
